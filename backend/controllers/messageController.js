@@ -25,7 +25,7 @@ export const sendMessage = async(req,res)=>{
 export const getMessage = async(req,res)=>{
     const {chatId} = req.params;
     try{
-        const messages = await Message.find({chat : chatId}).populate("sender","name email").sort({created : 1});
+        const messages = await Message.find({chat : chatId}).populate("sender","name email").sort({createdAt : 1});
         res.status(200).json(messages);
     }
     catch(err){

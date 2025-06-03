@@ -9,7 +9,6 @@ const router = express.Router()
 router.post('/access',protect,accessChat);
 router.get('/',protect,fetchChat);
 router.post('/group',protect,createGroupChat);
-router.post('/access',protect,accessChat);
 router.put('/rename',protect,renameGroup);
 router.put('/groupadd',protect,addToGroup);
 router.put('/groupremove',protect,removeFromGroup);

@@ -32,9 +32,9 @@ export const accessChat = async (req,res)=>{
 
 export const fetchChat = async (req,res)=>{
     try{
-        const {loggedInUserId} = req.user._id;
+        const loggedInUserId = req.user._id;
         const chats = await Chat.find({users : loggedInUserId}).populate("users","-passwords")
-        .populate("latestMessage").sort({uploadedAt : -1});
+        .populate("latestMessage").sort({updatedAt : -1});
         res.status(200).json(chats);
     }
     catch(err){
